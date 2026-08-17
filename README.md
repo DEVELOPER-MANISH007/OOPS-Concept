@@ -285,7 +285,6 @@ This series is my journey of strengthening Python OOP concepts through **consist
 
 ---
 
-## ⭐ Support
 
 If you find this series useful, consider giving the repository a ⭐ on GitHub.
 
