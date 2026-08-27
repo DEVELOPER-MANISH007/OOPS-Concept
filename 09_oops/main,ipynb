@@ -1,0 +1,146 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# 08 - OOP: Operator Overloading\n",
+        "\n",
+        "Operator overloading allows us to define how operators like `+`, `-`, `==`, `<`, and `>` behave for our custom objects.\n",
+        "\n",
+        "Python implements operator overloading using special (dunder) methods."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {},
+      "outputs": [],
+      "source": [
+        "class Student:\n",
+        "    def __init__(self, name, marks):\n",
+        "        self.name = name\n",
+        "        self.marks = marks\n",
+        "\n",
+        "    def __add__(self, other):\n",
+        "        return self.marks + other.marks\n",
+        "\n",
+        "    def __eq__(self, other):\n",
+        "        return self.marks == other.marks\n",
+        "\n",
+        "    def __lt__(self, other):\n",
+        "        return self.marks < other.marks\n",
+        "\n",
+        "    def __str__(self):\n",
+        "        return f\"{self.name} - {self.marks} marks\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": [],
+      "source": [
+        "student1 = Student(\"Manish\", 85)\n",
+        "student2 = Student(\"Rahul\", 75)\n",
+        "\n",
+        "print(student1)\n",
+        "print(student2)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": [],
+      "source": [
+        "total_marks = student1 + student2\n",
+        "\n",
+        "print(\"Total Marks:\", total_marks)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": [],
+      "source": [
+        "print(\"Are marks equal?\", student1 == student2)\n",
+        "print(\"Is Student 1 lower than Student 2?\", student1 < student2)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Practical Data Science Example"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": [],
+      "source": [
+        "class DataScienceProject:\n",
+        "    def __init__(self, name, accuracy):\n",
+        "        self.name = name\n",
+        "        self.accuracy = accuracy\n",
+        "\n",
+        "    def __gt__(self, other):\n",
+        "        return self.accuracy > other.accuracy\n",
+        "\n",
+        "    def __str__(self):\n",
+        "        return f\"{self.name}: {self.accuracy}% accuracy\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": [],
+      "source": [
+        "project1 = DataScienceProject(\"Fetal Health Classifier\", 94.2)\n",
+        "project2 = DataScienceProject(\"Sentiment Analysis\", 91.8)\n",
+        "\n",
+        "print(project1)\n",
+        "print(project2)\n",
+        "\n",
+        "if project1 > project2:\n",
+        "    print(f\"{project1.name} has better accuracy.\")\n",
+        "else:\n",
+        "    print(f\"{project2.name} has better accuracy.\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Key Takeaways\n",
+        "\n",
+        "- Operator overloading allows operators to work with custom objects.\n",
+        "- Python uses dunder methods for operator overloading.\n",
+        "- `__add__()` → `+`\n",
+        "- `__eq__()` → `==`\n",
+        "- `__lt__()` → `<`\n",
+        "- `__gt__()` → `>`\n",
+        "- `__str__()` → `print(object)`\n",
+        "\n",
+        "Operator overloading makes custom classes more intuitive and Pythonic."
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.13"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
